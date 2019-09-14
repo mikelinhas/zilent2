@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Fundación Livingstone | Subasta </title>
+
+    <!-- ICON -->
+    <link href="/zebra.ico" rel="icon" type="image/x-icon" />
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScripts -->
+    <script rel="javascript" src="js/jquery.min.js"></script>
+    <script rel="javascript" src="js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      
+      <!-- HEADER -->
+
+      <navbar user=<%= user %>></navbar>
+
+      <!-- BODY (app) -->
+
+      <div class="row" style="margin-left: 15px; margin-right: 15px">
+        <div class="container">
+
+          <Countdown deadline="2019-10-22T23:15:00Z"></Countdown>
+
+          <Itemlist class="custom-container"></Itemlist>    
+
+        </div>
+
+      </div>
+
+      <footer>
+        <p> Created by <a href="https://www.linkedin.com/in/miguelzarco/" target="_blank"><strong>Miguel Zarco Gillett</strong></a></p>
+        <p> Designed by <a class="orator" href="https://thenudelabel.com/es/" target="_blank"> The Nude Label </a></p>
+      </footer>           
+
+    </div>
+
+  </body>
+
+<script rel="javascript" src="js/auction.js"></script>
+
+</html>
+
