@@ -9,12 +9,14 @@
                 <button type="button"
                         v-if="!placingBid"
                         class="btn btn-success btn-input"
-                        v-on:click="placeBid"> Pujar!
+                        v-on:click="placeBid">
+                        <i class="fa fa-gavel fa-mid"></i>
                 </button>
                 <button type="button"
                         v-if="placingBid"
                         class="btn btn-default btn-input"
-                        > Pujar!
+                        >
+                        <i class="fa fa-gavel fa-mid"></i>
                 </button>
             </span>
         </div>

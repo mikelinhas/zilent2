@@ -11,6 +11,7 @@ module.exports = exports = function(app, db, passport) {
 	/** VIEWS */
 	
 	app.get('/', authenticated, views.auction);
+	app.get('/lite', authenticated, views.liteauction);
 	
 	// LOGIN STUFF
 	app.post('/login', (req, res, next) => {

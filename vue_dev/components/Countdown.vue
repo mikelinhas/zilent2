@@ -4,10 +4,6 @@
         <div class="clock-header"> La subasta termina en: </div>
 
         <div class="clock">
-            <div class="clock-block">
-                <p :class="{'clock-digits': true, redtext: redText}">{{days}}</p>
-                <p class="clock-text">Dias</p>
-            </div>
 
             <div class="clock-block">
                 <transition name="digit-fade" mode="out-in">

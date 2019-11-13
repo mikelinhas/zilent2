@@ -1,8 +1,10 @@
 var mongodb = require('./mongo')
 var auctionCollection = "auction"
 var userCollection = "users"
+require('dotenv').config();
 
-var deadline = new Date("2019-10-22T23:15:03Z");
+var deadline = new Date(process.env.DEADLINE)
+//var deadline = new Date("2019-10-22T23:15:03Z");
 // Note: must be one hour less than in Spain
 
 var winston = require('winston');

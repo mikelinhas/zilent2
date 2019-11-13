@@ -5,6 +5,18 @@
         <Photo :imageName="info.image" v-if="photoState == 'show'"></Photo>
 
         <div class="item-info-wrapper">
+            <button type="button"
+                    v-if="!favorite" 
+                    class="btn btn-custom btn-favorite"
+                    @click="favorite = true">
+                    <i class="fa fa-heart-o fa-mid fa-red"></i>
+            </button>
+            <button type="button"
+                    v-if="favorite" 
+                    class="btn btn-custom btn-favorite"
+                    @click="favorite = false">
+                    <i class="fa fa-heart fa-mid fa-red"></i>
+            </button>
             <h4 class="item-artist"> {{info.artist}} </h4>
             <h3 class="item-name"> {{info.name}} </h3>
             <transition name="green-in" mode="out-in">
@@ -17,7 +29,7 @@
                     v-if="!bidding" 
                     class="btn btn-custom btn-place-bid"
                     @click="bidding = true">
-                    <i class="fa fa-shopping-cart fa-2x"></i>
+                    <i class="fa fa-gavel fa-2x"></i>
             </button>
 
             <button type="button"
@@ -63,7 +75,8 @@
 
         data() {
           return {
-            bidding: false
+            bidding: false,
+            favorite: false
           }
           
         },

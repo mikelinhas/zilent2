@@ -7,7 +7,7 @@
             <i class="fa fa-bars fa-lg"></i>
           </button>
           <a class="navbar-brand" href="">
-            <img src="zebra.ico">
+            <img :src="logo">
           </a>
           <p class="pull-right user">{{user}}</p>
         </div>
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse pull-right" id="links">
           <ul class="nav navbar-nav">
             <li v-for="url in urls" v-bind:class="{strong: url.active}">
-              <a :href="url.link">{{url.name}} <img :src="url.logo"></a> 
+              <a :href="url.link">{{url.name}}</a> 
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -34,6 +34,9 @@
                 type: String,
                 default: 'Hello'
             },
+            logo: {
+                type: String
+            },
             activeurl: {
                 type: [String, Array],
                 default: '/',
@@ -43,9 +46,9 @@
         data() {
           return {
             urls: [
-              {'name':'Catálogo', 'link':'https://fundacionlivingstone.org/wp-content/uploads/2018/02/catalogo_subasta_8.pdf', 'logo':''},
-              {'name':'Fundación Livingstone', 'link':'https://fundacionlivingstone.org', 'active':0, 'logo':'logo.ico'},
-              {'name':'Logout', 'link':'/logout', 'logo':''}
+              {'name':'Catálogo', 'link':'https://fundacionlivingstone.org/wp-content/uploads/2018/02/catalogo_subasta_8.pdf'},
+              {'name':'Fundación Livingstone', 'link':'https://fundacionlivingstone.org', 'active':0},
+              {'name':'Logout', 'link':'/logout'}
             ],
           }
           
@@ -73,6 +76,7 @@
 .user {
   margin-top: 13px;
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .strong {

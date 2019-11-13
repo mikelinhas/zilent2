@@ -9,6 +9,8 @@
   display: table;
   border-collapse: separate; // prevent input groups from inheriting border styles from table cells when placed within a table
 
+  width: 100%; // Added by Mike
+  
   // Undo padding and float of grid classes
   &[class*="col-"] {
     float: none;

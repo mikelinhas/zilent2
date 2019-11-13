@@ -49,7 +49,8 @@ $btn-padding-horizontal:         4px !default;
 $btn-padding-top:                ($btn-padding-vertical) !default;
 $btn-padding-bottom:             ($btn-padding-vertical) !default;
 
-
+$btn-input-padding-vertical:     3px;
+$btn-input-padding-horizontal:   8px;
 
 // Button sizes
 @mixin button-size($top, $bottom, $horizontal, $font-size, $line-height, $border-radius) {
@@ -182,6 +183,11 @@ a.btn {
   margin-bottom: -30px;
 }
 
+.btn-favorite {
+  position: relative;
+  float: right;
+  bottom: 8px;
+}
 .btn-custom {
   @include button-variant($btn-custom-color, $btn-custom-bg, $btn-custom-border);
 }
@@ -265,7 +271,7 @@ a.btn {
   @include button-size($padding-xs-vertical, $padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
 .btn-input {
-  @include button-size($padding-base-vertical, $padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+  @include button-size($btn-input-padding-vertical, $btn-input-padding-vertical, $btn-input-padding-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
 }
 
 
