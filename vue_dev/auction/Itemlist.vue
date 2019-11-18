@@ -4,14 +4,20 @@
 
         <h1> Favoritos </h1>
         <div style="width: 100%">
-            <p>Todavía no tiene favoritos, añadalos usando el icono corasao</p>
+            <p>Añadalos usando el icono <i class="fa fa-heart fa-mid fa-red"></i></p>
         </div>
-        <masonry class="item-list-container"> 
-        </masonry>
+        <masonry :cols="{default: 4, 1000: 4, 700: 3, 500: 2}"
+                 :gutter="5"
+                 class="item-list-container">
 
-        <br>
+            <div v-for="item in favorite_items" class="item-block">
+                <Item :info="item" :photoState="photoState"></Item>
+            </div>
+        </masonry>            
 
-        <h1> Artículos subastados</h1>
+
+
+        <h1 style="margin-top: 40px"> Artículos subastados</h1>
     	<masonry :cols="{default: 4, 1000: 4, 700: 3, 500: 2}"
                  :gutter="5"
                  class="item-list-container">
@@ -38,6 +44,7 @@
           return {
             reloaded: true,
             items: [],
+            favorite_items: []
           }        
         },
 
@@ -45,19 +52,49 @@
             user: {
                 type: String,
                 required: true
+            },
+            favorites: {
+                type: Array           
             }
         },
         components: {Item},
 
-		methods: {
+        beforeMount() {
+            this.queryFavorites()
+        },
+
+        methods: {
+
+            queryFavorites: function() {
+                var vueVars = this;
+                var url = 'db/queryFavorites';
+                axios.get(url)
+                    .then (function (response) {
+                        vueVars.favorites = response.data.favorites;
+                        vueVars.queryItems();
+                    })
+                    .catch(function (error) {
+                        vueVars.errorMessage = "There has been an Error! Oh no.."
+                        console.log(error);
+                    })
+            },            
 
             queryItems: function() {
                 var vueVars = this;
                 var url = 'db/queryItems';
-
                 axios.get(url)
                     .then (function (response) {
                         vueVars.items = response.data;
+                        vueVars.favorite_items = []
+                        vueVars.items.forEach(function(item){
+                            vueVars.$set(item, "favorite", 0)
+                            vueVars.favorites.forEach(function(favorite){
+                                if (favorite == item._id) {
+                                    item.favorite=1
+                                    vueVars.favorite_items.push(item)
+                                }
+                            })
+                        })
                     })
                     .catch(function (error) {
                         vueVars.errorMessage = "There has been an Error! Oh no.."
@@ -67,7 +104,7 @@
 
             refreshPage: function() {
                 var vueVars = this;
-                setInterval(function() {vueVars.queryItems();}, 10000);
+                setInterval(function() {vueVars.queryFavorites();}, 10000);
             }
 
         },
@@ -80,11 +117,8 @@
 
         mounted() {
             this.refreshPage();
-        },
-
-        beforeMount() {
-            this.queryItems()
         }
+
 
     }
 

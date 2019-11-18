@@ -6,15 +6,15 @@
 
         <div class="item-info-wrapper">
             <button type="button"
-                    v-if="!favorite" 
+                    v-if="!info.favorite" 
                     class="btn btn-custom btn-favorite"
-                    @click="favorite = true">
+                    @click="addFavorite(info._id)">
                     <i class="fa fa-heart-o fa-mid fa-red"></i>
             </button>
             <button type="button"
-                    v-if="favorite" 
+                    v-if="info.favorite" 
                     class="btn btn-custom btn-favorite"
-                    @click="favorite = false">
+                    @click="removeFavorite(info._id)">
                     <i class="fa fa-heart fa-mid fa-red"></i>
             </button>
             <h4 class="item-artist"> {{info.artist}} </h4>
@@ -55,6 +55,7 @@
 </template>
 
 <script> 
+    import axios from 'axios'
     import Photo from './Photo.vue'
     import Bid from './Bid.vue'
 
@@ -75,8 +76,7 @@
 
         data() {
           return {
-            bidding: false,
-            favorite: false
+            bidding: false
           }
           
         },
@@ -84,9 +84,37 @@
         components: {Photo,Bid},
 
 		methods: {
+            addFavorite: function(item_id) {
+                let vueVars = this
+                axios.post('/db/addFavorite', {
+                    item: item_id
+                  })
+                  .then(function (response) {
+                    vueVars.info.favorite = true
+                    //vueVars.$emit('update:bidding', false);
+                  })
+                  .catch(function (error) {
+                    vueVars.message = error.response.data.message;
+                  });
+            },
+
+            removeFavorite: function(item_id) {
+                let vueVars = this
+                axios.post('/db/removeFavorite', {
+                    item: item_id
+                  })
+                  .then(function (response) {
+                    vueVars.info.favorite = false
+                    //vueVars.$emit('update:bidding', false);
+                  })
+                  .catch(function (error) {
+                    vueVars.message = error.response.data.message;
+                  });
+            },
+
             placeBid: function() {
                 this.bidding = true;
-            },
+            }
 		},
 
         computed: {

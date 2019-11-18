@@ -46,7 +46,7 @@
         data() {
           return {
             urls: [
-              {'name':'Catálogo', 'link':'https://fundacionlivingstone.org/wp-content/uploads/2018/02/catalogo_subasta_8.pdf'},
+              {'name':'Catálogo', 'link':'https://fundacionlivingstone.org/wp-content/uploads/2019/11/cata%C4%9Blogo-subasta-2019.pdf'},
               {'name':'Fundación Livingstone', 'link':'https://fundacionlivingstone.org', 'active':0},
               {'name':'Logout', 'link':'/logout'}
             ],

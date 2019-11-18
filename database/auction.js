@@ -60,6 +60,49 @@ const logger = winston.createLogger({
 		});
 	}
 
+	exports.getFavorites = function (req, res) {
+		var user = req.user.username
+		mongodb.findUserFavorites(user, function (err,result) {
+			if (err){
+				logger.warn(timestamp(new Date) + "Can't query favorites")
+				// DEBUG : console.log(err);
+				res.status(500).send({});
+			} else {
+				if (result == null) {result = []}
+				res.status(200).send(result);
+			}
+		});
+	}
+
+	exports.addFavorite = function (req, res) {
+		var user = req.user.username
+		var item = req.body.item
+		mongodb.addFavorite(user, item, function (err,result) {
+			if (err){
+				logger.warn(timestamp(new Date) + "Can't query favorites")
+				// DEBUG : console.log(err);
+				res.status(500).send({});
+			} else {
+				if (result == null) {result = []}
+				res.status(200).send(result);
+			}
+		});
+	}
+
+	exports.removeFavorite = function (req, res) {
+		var user = req.user.username
+		var item = req.body.item
+		mongodb.removeFavorite(user, item, function (err,result) {
+			if (err){
+				logger.warn(timestamp(new Date) + "Can't query favorites")
+				// DEBUG : console.log(err);
+				res.status(500).send({});
+			} else {
+				if (result == null) {result = []}
+				res.status(200).send(result);
+			}
+		});
+	}
 	// This function is way too messy... in the future should clean it up a bit
 	exports.addBid = function (req,res) {
 
@@ -70,7 +113,7 @@ const logger = winston.createLogger({
 		var date = new Date();
 		var name = req.body.name;
 		var item_id = req.body.id;
-		console.log(item_id);
+		//console.log(item_id);
 
 		var bid = {"date": date, "bidder": user, "amount": amount};
 

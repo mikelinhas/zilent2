@@ -49,6 +49,9 @@ module.exports = exports = function(app, db, passport) {
 
 	// DATABASE AUCTION QUERYS
 	app.get('/db/queryItems', authenticated, auction.getItems);
+	app.get('/db/queryFavorites', authenticated, auction.getFavorites);
+	app.post('/db/addFavorite', authenticated, auction.addFavorite);
+	app.post('/db/removeFavorite', authenticated, auction.removeFavorite);
 
 
 	// DATABASE BID QUERYS

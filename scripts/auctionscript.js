@@ -3,81 +3,60 @@ var mongodb = require('../database/mongo');
 
 var items = 
 [
+	{"_id":"Ajenjo",
+	"artist":"Mónica Ajenjo",
+	"name":"Lazo multicolor en verdes y tierras",
+	"image":"Ajenjo",
+	"bids": [{"bidder": "","amount": 300}]
+	},
+
+	{"_id":"Arrue",
+	"artist":"Jesús Arrué",
+	"name":"Aisha",
+	"image":"Arrue",
+	"bids": [{"bidder": "","amount": 300}]
+	},
+
 	{"_id":"Calo",
 	"artist":"Calo Carratalá",
-	"name":"Pescador en las playas de Bogamoyo",
+	"name":"Río Nanay y Palafito",
 	"image":"Calo",
-	"bids": [{"bidder": "","amount": 750}]
-	},
-
-	{"_id":"Girbes",
-	"artist":"Antonio Girbés",
-	"name":"Trampantojo XIII",
-	"image":"Girbes",
-	"bids": [{"bidder": "","amount": 2000}]
-	},
-
-	{"_id":"Marti1",
-	"artist":"Jorge Martí",
-	"name":"Menina con flor roja",
-	"image":"Marti1",
 	"bids": [{"bidder": "","amount": 300}]
 	},
 
-	{"_id":"Marti2",
-	"artist":"Jorge Martí",
-	"name":"Menina con pañuelo",
-	"image":"Marti2",
+	{"_id":"Paz",
+	"artist":"Paz Ferrer Martínez",
+	"name":"We can't help everyone, but everyone can help someone",
+	"image":"Paz",
 	"bids": [{"bidder": "","amount": 300}]
 	},
 
-	{"_id":"Unsain",
-	"artist":"Tere Unsaín",
-	"name":"Cielo África",
-	"image":"Unsain",
+	{"_id":"Artur",
+	"artist":"Artur Heras",
+	"name":"Hotel Ambos Mundos",
+	"image":"Artur",
 	"bids": [{"bidder": "","amount": 340}]
 	},
 
-	{"_id":"Txillida",
-	"artist":"Pedro Txillida",
-	"name":"B. De la serie Abecedario",
-	"image":"Txillida",
+	{"_id":"Marti",
+	"artist":"Jorge Martí",
+	"name":"Menina in blue",
+	"image":"Marti",
 	"bids": [{"bidder": "","amount": 250}]
-	},
-
-	{"_id":"Torres",
-	"artist":"Fernando Torres",
-	"name":"Camiseta At. Madrid firmada",
-	"image":"Torres",
-	"bids": [{"bidder": "","amount": 300}]
-	},
-
-	{"_id":"Charles",
-	"artist":"John Charles",
-	"name":"TA and Wally",
-	"image":"Charles",
-	"bids": [{"bidder": "","amount": 150}]
-	},
-
-	{"_id":"Jaques",
-	"artist":"Isabel Jaques",
-	"name":"Desnudo sobre cubo",
-	"image":"Jaques",
-	"bids": [{"bidder": "","amount": 200}]
-	},
-
-	{"_id":"Mencheta",
-	"artist":"Consuelo Mencheta",
-	"name":"El Estanque de la Hiedra",
-	"image":"Mencheta",
-	"bids": [{"bidder": "","amount": 680}]
 	},
 
 	{"_id":"Michavila",
 	"artist":"Carmen Michavila",
-	"name":"Lugares y Juegos",
+	"name":"S/T",
 	"image":"Michavila",
-	"bids": [{"bidder": "","amount": 360}]
+	"bids": [{"bidder": "","amount": 300}]
+	},
+
+	{"_id":"Unsain",
+	"artist":"Tere Unsain - Personalizado",
+	"name":"Retrato personalizado a lápiz",
+	"image":"Unsain",
+	"bids": [{"bidder": "","amount": 150}]
 	},
 
 	{"_id":"Quintana",
@@ -87,12 +66,27 @@ var items =
 	"bids": [{"bidder": "","amount": 200}]
 	},
 
-	{"_id":"FCBarcelona",
-	"artist":"FC Barcelona",
-	"name":"Camiseta FCB firmada por los jugadores",
-	"image":"FCBarcelona",
-	"bids": [{"bidder": "","amount": 300}]
+	{"_id":"Prado",
+	"artist":"Museo del Prado",
+	"name":"Concierto en el museo",
+	"image":"Prado",
+	"bids": [{"bidder": "","amount": 200}]
 	},
+
+	{"_id":"Lara",
+	"artist":"José Manuel Lara",
+	"name":"Palos de golf firmados",
+	"image":"Lara",
+	"bids": [{"bidder": "","amount": 680}]
+	},
+
+	{"_id":"Basket",
+	"artist":"Valencia Basket",
+	"name":"Camiseta firmada",
+	"image":"Basket",
+	"bids": [{"bidder": "","amount": 360}]
+	},
+
 
 	{"_id":"ATMadrid",
 	"artist":"AT Madrid",
@@ -101,33 +95,13 @@ var items =
 	"bids": [{"bidder": "","amount": 300}]
 	},
 
-	{"_id":"Iniesta",
-	"artist":"Andrés Iniesta",
-	"name":"Camiseta FCB firmada por Iniesta",
-	"image":"Iniesta",
+	{"_id":"Levante",
+	"artist":"Levante UD",
+	"name":"Balón firmado por los jugadores",
+	"image":"Levante",
 	"bids": [{"bidder": "","amount": 300}]
-	},
-
-	{"_id":"Corbalan",
-	"artist": "Juan Antonio Corbalán",
-	"name": "Camiseta vintage R. Madrid baloncesto",
-	"image": "Corbalan",
-	"bids": [{"bidder": "", "amount": 300}]
-	},
-
-	{"_id":"Ronaldo",
-	"artist":"Cristiano Ronaldo",
-	"name":"Camiseta RM firmada por Ronaldo",
-	"image": "Ronaldo",
-	"bids": [{"bidder": "", "amount": 300}]
-	},
-
-	{"_id":"Oyarzabal",
-	"artist":"Mikel Oyarzabal",
-	"name":"Camiseta R. Sociedad firmada por Oyarzabal",
-	"image": "Oyarzabal",
-	"bids": [{"bidder": "", "amount": 300}]
 	}
+
 ]
 
 mongodb.init(function (err, db) {

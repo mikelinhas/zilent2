@@ -52,6 +52,35 @@ exports.insertUsersFromScript = function(data, cb){
     })
 }
 
+exports.findUserFavorites = function(username, cb){
+    db.collection("users", function(err, collection) {
+        collection.findOne({"user": username}, {"favorites": 1, "_id": 0}, cb)
+    })
+};
+
+exports.addFavorite = function(username, item, cb) {
+    db.collection("users", function(err, collection) {
+        collection.findOne({"user": username, "favorites": item}, function(err,result){
+            //console.log(result)
+            if (result == null) {
+                collection.update({"user": username}, { $addToSet: {"favorites": item}}, cb)
+            }
+        })
+    })
+};
+
+exports.removeFavorite = function(username, item, cb){
+    db.collection("users", function(err, collection) {
+        //console.log(item)
+        collection.findOne({"user": username, "favorites": item}, function(err,result){
+            //console.log(result)
+            if (result !== null) {
+                collection.update({"user": username}, { $pull: {"favorites": item}}, cb)
+            }
+        })
+    })
+};
+
 // Generic
     exports.findAll = function(collectionName, cb){
         db.collection(collectionName, function(err, collection) {
