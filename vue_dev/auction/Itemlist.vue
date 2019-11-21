@@ -4,7 +4,7 @@
 
         <h1> Favoritos </h1>
         <div style="width: 100%">
-            <p>Añadalos usando el icono <i class="fa fa-heart fa-mid fa-red"></i></p>
+            <p>Añádalos usando el icono <i class="fa fa-heart fa-mid fa-red"></i></p>
         </div>
         <masonry :cols="{default: 4, 1000: 4, 700: 3, 500: 2}"
                  :gutter="5"
