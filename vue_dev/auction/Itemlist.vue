@@ -85,6 +85,13 @@
                 axios.get(url)
                     .then (function (response) {
                         vueVars.items = response.data;
+
+                        vueVars.items.sort(function (item1, item2) {
+                          // Sort by color
+                          if (item1._id > item2._id) return -1;
+                          if (item1._id < item2._id) return 1;
+                        });
+
                         vueVars.favorite_items = []
                         vueVars.items.forEach(function(item){
                             vueVars.$set(item, "favorite", 0)
