@@ -15693,7 +15693,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',[_vm._v(" Favoritos ")]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('masonry',{staticClass:"item-list-container",attrs:{"cols":{default: 4, 1000: 4, 700: 3, 500: 2},"gutter":5}},_vm._l((_vm.favorite_items),function(item){return _c('div',{staticClass:"item-block"},[_c('Item',{attrs:{"info":item,"photoState":_vm.photoState}})],1)}),0),_vm._v(" "),_c('h1',{staticStyle:{"margin-top":"40px"}},[_vm._v(" Artículos subastados")]),_vm._v(" "),_c('masonry',{staticClass:"item-list-container",attrs:{"cols":{default: 4, 1000: 4, 700: 3, 500: 2},"gutter":5}},_vm._l((_vm.items),function(item){return _c('div',{staticClass:"item-block"},[_c('Item',{attrs:{"info":item,"photoState":_vm.photoState}})],1)}),0)],1)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"width":"100%"}},[_c('p',[_vm._v("Añadalos usando el icono "),_c('i',{staticClass:"fa fa-heart fa-mid fa-red"})])])}]
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"width":"100%"}},[_c('p',[_vm._v("Añádalos usando el icono "),_c('i',{staticClass:"fa fa-heart fa-mid fa-red"})])])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
